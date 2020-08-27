@@ -4,12 +4,64 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <link href="~/css/customstyle.css" rel="stylesheet" />
 </head>
-<body>
-    <h1><a href="/administrator">Trang chính</a></h1>
-    
+<body style="margin:0!important">
+    <nav class="navbar">
+        <div class="container">
+            <a class="title-header text-light" href="/administrator">MINISHOP</a>
+        </div>
+        @*<div class="signInUp">
+                <ul class="menu">
+                    <li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+
+                            <label>Welcome: @User.Identity.Name</label>
+                            <ul>
+                                <li>
+                                    <a class="colorGrey" href="/auth"><i class="fas fa-users"></i>Profile</a>
+                                </li>
+
+                                <li>
+                                    <a class="colorGrey" href="/auth/signout"><i class="fas fa-sign-out-alt"></i>LogOut</a>
+                                </li>
+                            </ul>
+                        }
+
+                    </li>
+                </ul>
+            </div>*@
+    </nav>
+    <div id="viewport">
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <ul class="nav">
+                <li>
+                    <a href="/administrator/category">Danh mục</a>
+                </li>
+                <li>
+                    <a href="/administrator/product">Sản phẩm</a>
+                </li>
+                <li>
+                    <a href="/administrator/role">Vai trò</a>
+                </li>
+                <li>
+                    <a href="/administrator/member">Tài khoản</a>
+                </li>
+                <li>
+                    <a href="/administrator/order">Đơn hàng</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
     <div>
         @RenderBody()
     </div>
+    <script>
+        var list = document.getElementsByClassName('nav');
+        for (int i = 0;)
+    </script>
 </body>
 </html>

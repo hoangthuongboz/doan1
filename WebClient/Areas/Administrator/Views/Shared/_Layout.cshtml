@@ -5,9 +5,38 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <link href="~/css/log.css" rel="stylesheet" />
+    <link href="~/css/customstyle.css" rel="stylesheet" />
 </head>
-<body>
-    <a href="/administrator">Trang chính</a>
+<body style="margin:0!important">
+    <nav class="navbar">
+        <div class="container">
+            <a class="title-header text-light" href="/administrator">MINISHOP</a>
+        </div>
+    </nav>
+    <div id="viewport">
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <ul class="nav">
+                <li>
+                    <a href="/administrator/category">Danh mục</a>
+                </li>
+                <li>
+                    <a href="/administrator/product">Sản phẩm</a>
+                </li>
+                <li>
+                    <a href="/administrator/role">Vai trò</a>
+                </li>
+                <li>
+                    <a href="/administrator/member">Tài khoản</a>
+                </li>
+                <li>
+                    <a href="/administrator/order">Đơn hàng</a>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
     <div>
         @RenderBody()
     </div>

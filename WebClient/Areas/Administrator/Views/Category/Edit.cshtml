@@ -3,20 +3,20 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-<div asp-validation-summary="All"></div>
-<form method="post">
-    <input type="hidden" asp-for="Id" />
-    <p>
-        <label>Name</label>
-        <input type="text" asp-for="Name" />
-    </p>
-    <p>
-        <label>Description</label>
-        <textarea asp-for="Description"></textarea>
-    </p>
-    <p>
-        <button>Save</button>
-    </p>
-</form>
+<div class="table-area">
+    <h1>Chỉnh sửa</h1>
+    <div asp-validation-summary="All"></div>
+    <form class="form-custom" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="field-area">
+            <label>Tên</label>
+            <input style="width:244px;margin-left: 22px;" type="text" asp-for="Name" />
+        </div>
+        <div class="field-area">
+            <label>Miêu tả</label>
+            <textarea style=" width: 243px;" asp-for="Description"></textarea>
+        </div>
+        <button class="create-btn"><a href="#">Lưu</a></button>
+    </form>
+</div>
 

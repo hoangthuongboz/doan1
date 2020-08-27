@@ -4,91 +4,96 @@
     ViewData["Title"] = "ManagerRole";
 }
 <link href="/css/style.css" rel="stylesheet" />
-<h1>Role</h1>
-<a href="#Create">Create</a>
-<div class="modal" id="Create">
-    <div class="modal-dialog">
-        <div class="modal-headding">
-            Create Role
-        </div>
-        <div class="modal-body">
-            <form action="/administrator/role/create" method="post">
-                <p>
-                    <label>Name</label>
-                    <input type="text" name="name" />
-                </p>
-                <p>
-                    <button>Save</button>
-                    <a href="/administrator/Role">Close</a>
-                </p>
-            </form>
+<div class="table-area">
+    <h1>Vai Trò</h1>
+    <button class="create-btn"><a href="#Create">Tạo mới</a></button>
+    <div class="modal" id="Create">
+        <div class="modal-dialog">
+            <div class="modal-headding">
+                Tạo mới vai trò
+            </div>
+            <div class="modal-body">
+                <form action="/administrator/role/create" method="post">
+                    <p>
+                        <label>Tên</label>
+                        <input type="text" name="name" />
+                    </p>
+                    <p>
+                        <button class="create-btn" style="color:white;margin-right:20px"><a href="#">Lưu</a></button>
+                        <button class="create-btn" style="color:white"><a href="/administrator/Role">Đóng</a></button>
+                    </p>
+                </form>
+            </div>
         </div>
     </div>
-</div>
-<table>
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Edit</th>
-            <th>Delete</th>
-        </tr>
-    </thead>
-    @foreach (var item in Model)
-    {
-        <tr data-id="@item.Id">
-            <td>@item.Id</td>
-            <td>@item.Name</td>
-            <td class="del">
-                <img src="/Images/edit.png" />
-            </td>
-            <td>
-                <a class="delete" href="/administrator/role/delete/@item.Id">
-                    <img src="~/images/trash.png" />
-                </a>
-            </td>
-        </tr>
-    }
-</table>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Tên</th>
+                <th>Sửa</th>
+                <th>Xoá</th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr data-id="@item.Id">
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td class="del">
+                    <a href="#">
+                        <img height="34" width="30" src="/Images/edit-solid.svg" />
+                    </a>
+                </td>
+                <td>
+                    <a class="delete" href="/administrator/role/delete/@item.Id">
+                        <img height="34" width="30" src="~/images/trash-solid.svg" />
+                    </a>
+                </td>
+            </tr>
+        }
+    </table>
 
-@*js*@
-<script type="text/javascript">
-    var a = document.getElementsByClassName('del');
-    for (var i = a.length - 1; i >= 0; i--) {
-        a[i].onclick = function () {
-            var id = this.parentNode.getAttribute('data-id');
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', '/administrator/role/edit/' + id);
-            xhr.send();
-            xhr.onload = function () {
-                var o = JSON.parse(xhr.response);
-                frm['id'].value = o['id'];
-                frm['name'].value = o['name'];
-                window.location = window.location + '#edit';
+    @*js*@
+    <script type="text/javascript">
+        var a = document.getElementsByClassName('del');
+        for (var i = a.length - 1; i >= 0; i--) {
+            a[i].onclick = function () {
+                var id = this.parentNode.getAttribute('data-id');
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', '/administrator/role/edit/' + id);
+                xhr.send();
+                xhr.onload = function () {
+                    var o = JSON.parse(xhr.response);
+                    frm['id'].value = o['id'];
+                    frm['name'].value = o['name'];
+                    window.location = window.location + '#edit';
+                }
             }
         }
-    }
-</script>
-<div class="modal" id="edit">
-    <div class="modal-dialog">
-        <div class="modal-headding">
-            Edit Role
-        </div>
-        <div class="modal-body">
-            <form name="frm" method="post" action="/administrator/role/edit">
-                <input type="hidden" name="id" />
-                <p>
-                    <label>Name</label>
-                    <input type="text" name="name" />
-                </p>
-                <p>
-                    <button>Save</button>
-                    <a href="/administrator/role">Close</a>
-                </p>
-            </form>
+    </script>
+    <div class="modal" id="edit">
+        <div class="modal-dialog">
+            <div class="modal-headding">
+                Chỉnh sửa vai trò
+            </div>
+            <div class="modal-body">
+                <form name="frm" method="post" action="/administrator/role/edit">
+                    <input type="hidden" name="id" />
+                    <p>
+                        <label>Tên</label>
+                        <input type="text" name="name" />
+                    </p>
+                    <p>
+                        <button class="create-btn"><a href="/administrator/role">Lưu</a></button>
+                        <button class="create-btn"><a href="/administrator/role">Đóng</a></button>
+                    </p>
+                </form>
+            </div>
         </div>
     </div>
 </div>
+
 @*delete*@
 <script type="text/javascript">
     var b = document.getElementsByClassName('delete');
