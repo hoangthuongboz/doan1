@@ -1,0 +1,17 @@
+﻿@model Category
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div asp-validation-summary="All"></div>
+<form method="post">
+    <h1>Create Category</h1>
+    <div class="input">
+        <input placeholder="Tên" type="text" asp-for="Name" required="">
+
+    </div>
+    <textarea placeholder="Mô tả" type="text" asp-for="Description" required="" style="padding-left: 25px"></textarea>
+    <button>Save</button>
+</form>
+

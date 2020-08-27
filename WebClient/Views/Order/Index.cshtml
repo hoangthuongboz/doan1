@@ -1,0 +1,42 @@
+﻿@model List<Orders>
+@{
+    
+    ViewData["Title"] = "Index";
+}
+
+<h1>Đơn hàng</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Mã đơn hàng</th>
+            <th>Ngày đặt</th>
+            <th>Người giao hàng</th>
+            <th>Số điện thoại người giao</th>
+            <th>Trạng thái đơn hàng</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.CreateTime</td>
+                <td>@item.HOTEN_DL</td>
+                <td>@item.SDT_DL</td>
+                <td>@item.Status</td>
+                <td><a href="#">Chi tiết đơn hàng</a></td>
+                @if (item.Status_code == "P")
+                {
+                    <td><a href="#">Hủy đơn hàng</a></td>
+                }else {
+                    <td><a href="#">Đặt hàng lại</a></td>
+                }
+                    
+            </tr>
+        }
+    </tbody>
+    
+</table>

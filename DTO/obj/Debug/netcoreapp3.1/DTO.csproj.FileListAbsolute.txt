@@ -1,0 +1,9 @@
+D:\.NET\WebApp\DTO\bin\Debug\netcoreapp3.1\DTO.deps.json
+D:\.NET\WebApp\DTO\bin\Debug\netcoreapp3.1\DTO.dll
+D:\.NET\WebApp\DTO\bin\Debug\netcoreapp3.1\DTO.pdb
+D:\.NET\WebApp\DTO\obj\Debug\netcoreapp3.1\DTO.AssemblyInfoInputs.cache
+D:\.NET\WebApp\DTO\obj\Debug\netcoreapp3.1\DTO.AssemblyInfo.cs
+D:\.NET\WebApp\DTO\obj\Debug\netcoreapp3.1\DTO.csproj.CoreCompileInputs.cache
+D:\.NET\WebApp\DTO\obj\Debug\netcoreapp3.1\DTO.dll
+D:\.NET\WebApp\DTO\obj\Debug\netcoreapp3.1\DTO.pdb
+D:\.NET\WebApp\DTO\obj\Debug\netcoreapp3.1\DTO.csprojAssemblyReference.cache

@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="/css/home.css" rel="stylesheet" />
+    <link href="/css/all.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+    <script src="/js/js.js"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.green.min.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="contact">
+                <h3 class="abc">Hỗ trợ</h3>
+                <h3><i class="fas fa-phone-volume"></i>(+84)372704074</h3>
+                <h3><i class="fas fa-envelope"></i>Admin@gmail.com</h3>
+            </div>
+            <div class="logo">
+                <h1><a href="/">MINISHOP</a></h1>
+            </div>
+            <div class="signInUp">
+                <ul class="menu">
+                    <li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+
+                            <label>Welcome: @User.Identity.Name</label>
+                            <ul>
+                                <li>
+                                    <a class="colorGrey" href="/auth"><i class="fas fa-users"></i>Profile</a>
+                                </li>
+                                <li><a href="/order"><i class="fas fa-gift"></i>Đơn hàng</a></li>
+                                <li>
+                                    <a class="colorGrey" href="/auth/signout"><i class="fas fa-sign-out-alt"></i>LogOut</a>
+                                </li>
+                            </ul>
+                        }
+                        else
+                        {
+                            <a class="colorGrey" href="/auth/signup"><i class="fas fa-sign-in-alt"></i>SignUp</a>
+                            <a class="colorGrey" href="/auth/signin"><i class="fas fa-user-plus"></i>Login</a>
+                        }
+                    </li>
+                    <li>
+                        <a class="colorGrey" href="/cart"><i class="fas fa-shopping-cart"></i>Cart</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    @*<div class="hd-search">
+        <form action="/home/search">
+            <input type="search" name="q" value="@Context.Request.Query["q"]" />
+            <button>Search</button>
+        </form>
+    </div>*@
+
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
