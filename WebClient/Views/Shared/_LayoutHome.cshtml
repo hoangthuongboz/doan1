@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+    
+    
 </head>
 <body>
     <div class="container-fluid" style="padding: 0; margin: 0;">
@@ -50,14 +51,14 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="color: #dfdbdb; font-weight: bold">ABOUT</a>
+                        <a class="nav-link" href="#" style="color: #dfdbdb; font-weight: bold">THÔNG TIN</a>
                     </li>
 
                     <!-- Dropdown -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false" style="color: #dfdbdb; font-weight: bold; cursor: pointer">SẢN PHẨM</a>
-                        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink" style="background: #eee4f7;">
 
 
                             @foreach (var item in ViewBag.categories)
@@ -67,7 +68,7 @@
                                         <li class="item">
 
                                             <div>
-                                                <a class="dropdown-item" style="text-transform: uppercase;text-align:center;font-weight: bold;" href="/home/browser/@item.Id">@item.Name</a>
+                                                <a class="dropdown-item" style="text-transform: uppercase;font-weight: bold;" href="/home/browser/@item.Id">@item.Name</a>
                                             </div>
 
                                         </li>
@@ -82,44 +83,50 @@
                         </div>
                     </li>
                     <form action="/home/search" style=" padding-left: 360px;" class="d-flex">
-                        <input class="form-control" type="search" name="q" value="@Context.Request.Query["q"]" placeholder="Search" />
-                        <button class="btn btn-secondary" style="margin-left:5px">Search</button>
+                        <input class="form-control" type="search" name="q" value="@Context.Request.Query["q"]" placeholder="Tìm kiếm" />
+                        <button class="btn btn-secondary" style="margin-left:5px">Tìm</button>
                     </form>
                 </ul>
                 <!-- Links -->
 
             </div>
             <!-- Collapsible content -->
-            <div class="md-form my-0" style=" width: 250px;">
+            <div class="md-form my-0" style=" width: 280px;">
                 <ul class="d-flex" style=" margin-bottom: 0rem;">
-                    <li>
+                    <li class="d-flex">
                         @if (User.Identity.IsAuthenticated)
                         {
 
                             <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <label><span>Welcome: </span> @User.Identity.Name</label>
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 13px;background: #b6a3ff;">
+                                    <label style="cursor:pointer"><span>Xin chào : </span> @User.Identity.Name</label>
                                 </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="/cart" style="text-decoration:none"> <i class="fas fa-shopping-cart"></i>Cart</a>
-                                    <a class="dropdown-item" href="/auth" style="text-decoration:none"> <i class="fas fa-users"></i>Profile</a>
-                                    <a class="dropdown-item" href="/order" style="text-decoration:none"><i class="fas fa-gift"></i>Đơn hàng</a>
-                                    <a class="dropdown-item" href="/auth/signout" style="text-decoration:none"><i class="fas fa-sign-out-alt"></i>LogOut</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color:#eee4f7">
 
+                                    <a class="dropdown-item" href="/auth" style="text-decoration:none"> <i class="fas fa-users"></i>Hồ sơ</a>
+                                    <a class="dropdown-item" href="/order" style="text-decoration:none"><i class="fas fa-gift"></i>Đơn hàng</a>
+                                    <a class="dropdown-item" href="/auth/signout" style="text-decoration:none"><i class="fas fa-sign-out-alt"></i>Thoát</a>
                                 </div>
+
+                            </div>
+                            <div>
+                                <button style="background: #b6a3ff; text-align: center; border-radius: 2px; color: #fff;height:46px">
+                                    <a class="dropdown-item" href="/cart" style="text-decoration:none;height: 46px;padding-top: 9px;"> <i class="fas fa-shopping-cart"></i>Giỏ hàng</a>
+
+                                </button>
                             </div>
 
 
 
                             @*<ul>
-                                    <li>
-                                        <a class="colorGrey" href="/auth" style="text-decoration:none"><i class="fas fa-users"></i>Profile</a>
-                                    </li>
-                                    <li><a href="/order" style="text-decoration:none"><i class="fas fa-gift"></i>Đơn hàng</a></li>
-                                    <li>
-                                        <a class="colorGrey" href="/auth/signout" style="text-decoration:none"><i class="fas fa-sign-out-alt"></i>LogOut</a>
-                                    </li>
-                                </ul>*@
+                <li>
+                    <a class="colorGrey" href="/auth" style="text-decoration:none"><i class="fas fa-users"></i>Profile</a>
+                </li>
+                <li><a href="/order" style="text-decoration:none"><i class="fas fa-gift"></i>Đơn hàng</a></li>
+                <li>
+                    <a class="colorGrey" href="/auth/signout" style="text-decoration:none"><i class="fas fa-sign-out-alt"></i>LogOut</a>
+                </li>
+            </ul>*@
                         }
                         else
                         {
@@ -223,21 +230,39 @@
             </ul>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="~/upload/banner2.jpg" alt="Los Angeles" width="100%" height="600">
-
+                    <img src="~/upload/banner2.jpg" alt="Los Angeles" width="100%" height="500" style="filter:brightness(60%);" >
+                    <div class="carousel-caption" style="color:#fff">
+                        <h3>Chicago</h3>
+                        <p>Thank you, Chicago!</p>
+                    </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="~/upload/banner-mid.jpg" alt="Chicago" width="100%" height="600">
-
+                    <img src="~/upload/banner-mid.jpg" alt="Chicago" width="100%" height="500" style="filter:brightness(60%);">
+                    <div class="carousel-caption" style="color:#fff">
+                        <h3>Chicago</h3>
+                        <p>Thank you, Chicago!</p>
+                    </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="~/upload/banner1.jpg" alt="New York" width="100%" height="600">
+                    <img src="~/upload/banner1.jpg" alt="New York" width="100%" height="500" style="filter:brightness(60%);">
+                    <div class="carousel-caption" style="color:#fff">
+                        <h3>Chicago</h3>
+                        <p>Thank you, Chicago!</p>
+                    </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="~/upload/banner3.jpg" alt="New York" width="100%" height="600">
+                    <img src="~/upload/banner3.jpg" alt="New York" width="100%" height="500" style="filter:brightness(60%);">
+                    <div class="carousel-caption" style="color:#fff">
+                        <h3>Chicago</h3>
+                        <p>Thank you, Chicago!</p>
+                    </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="~/upload/banner4.jpg" alt="New York" width="100%" height="600">
+                    <img src="~/upload/banner4.jpg" alt="New York" width="100%" height="500" style="filter:brightness(60%);">
+                    <div class="carousel-caption" style="color:#fff">
+                        <h3>Chicago</h3>
+                        <p>Thank you, Chicago!</p>
+                    </div>
                 </div>
             </div>
             <a class="carousel-control-prev" href="#demo" data-slide="prev">
@@ -290,20 +315,20 @@
                         </div>
                         <div class="content col-xs-6">
                             <h2>Email</h2>
-                            <a href="">hoangthuongboz@gmail.com</a>
+                            <a style="text-decoration:none" href="#">hoangthuongboz@gmail.com</a>
                         </div>
                     </div>
                     <div class="contact col-xs-12 col-md-6">
                         <div class="content col-xs-6">
                             <h2>Phone</h2>
-                            <a href="">0372704074</a>
+                            <a style="text-decoration:none" href="">0372704074</a>
                             <div class="contact">
 
                             </div>
                         </div>
                         <div class="content col-xs-6">
                             <h2>Fax</h2>
-                            <a href="">+ 000 1111 0000</a>
+                            <a style="text-decoration:none" href="">+ 000 1111 0000</a>
                         </div>
                     </div>
                 </div>
@@ -347,4 +372,34 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script type="text/javascript">
+</script>
+
+<script type="text/javascript">
+    $().ready(function () {
+        $('[rel="tooltip"]').tooltip();
+
+        $('a.scroll-down').click(function (e) {
+            e.preventDefault();
+            scroll_target = $(this).data('href');
+            $('html, body').animate({
+                scrollTop: $(scroll_target).offset().top - 60
+            }, 1000);
+        });
+
+    });
+
+    function rotateCard(btn) {
+        var $card = $(btn).closest('.card-container');
+        console.log($card);
+        if ($card.hasClass('hover')) {
+            $card.removeClass('hover');
+        } else {
+            $card.addClass('hover');
+        }
+    }
+
+
+</script>
+
 </html>

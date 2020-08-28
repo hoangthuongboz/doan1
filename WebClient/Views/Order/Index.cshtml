@@ -4,7 +4,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Đơn hàng</h1>
+    <h2 class="text-center" style="text-transform: uppercase;font-size: 38px;color: #485650;font-weight: bold;
+">
+        Đơn hàng
+    </h2>
 
 <table>
     <thead>
@@ -27,10 +30,10 @@
                 <td>@item.HOTEN_DL</td>
                 <td>@item.SDT_DL</td>
                 <td>@item.Status</td>
-                <td><a href="#">Chi tiết đơn hàng</a></td>
+                <td><a style="text-decoration:none" href="#">Chi tiết đơn hàng</a></td>
                 @if (item.Status_code == "P")
                 {
-                    <td><a href="#">Hủy đơn hàng</a></td>
+                    <td><a style="text-decoration:none" href="#">Hủy đơn hàng</a></td>
                 }else {
                     <td><a href="#">Đặt hàng lại</a></td>
                 }

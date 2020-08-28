@@ -3,8 +3,11 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Your Profile</h1>
-<p>Username: <b>@Model.Username</b></p>
-<p>Email: <b>@Model.Email</b></p>
-<a href="/auth/change">Change Password</a>
+    <div style="text-align:center">
+        <h1>Your Profile</h1>
+        <p style="font-size: 26px;">Username: <b>@Model.Username</b></p>
+        <p style="font-size: 26px;">Email: <b>@Model.Email</b></p>
+        <a style="text-decoration:none"  href="/auth/change">Change Password</a>
+    </div>
+
 

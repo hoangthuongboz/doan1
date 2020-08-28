@@ -100,13 +100,20 @@ body main .container .category-content {
         left: 50%;
         transform: translateX(-50%);
     }
-    .pagination li {
-        display: inline-block;
-        border: 1px solid pink;
-        padding: 5px 10px;
-        border-radius: 3px;
-    }
+.pagination li {
+    display: inline-block;
+    border: 1px solid pink;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin: 0 5px;
+    
+}
 
-.pagination li.active {
-    background-color: pink;
+    .pagination li.active {
+        background-color: pink;
+        margin: 0 5px;
+    }
+.pagination {
+    justify-content: center;
+    padding-top:35px
 }
