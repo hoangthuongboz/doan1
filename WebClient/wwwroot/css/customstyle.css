@@ -60,7 +60,7 @@ body {
     z-index: 1000;
     position: fixed;
     /* left: 240px; */
-    width: 210px;
+    width: 200px;
     height: 100%;
     margin-left: -250px;
     overflow-y: auto;
@@ -69,7 +69,8 @@ body {
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
-    margin-top: 77px;
+    margin-top: 70px;
+    padding-top: 15px;
 }
 
 .active-tab {
@@ -135,12 +136,17 @@ body {
     transition: all 0.2s;
 }
 
+button {
+    cursor: pointer;
+}
+
 .create-btn:hover {
     background: #1a73e8cc;
 }
 
 .create-btn a {
-    color: white;
+    color: white !important;
+    text-decoration: none !important;
     font-size: 15px;
     font-weight: 700;
 }
@@ -153,6 +159,7 @@ body {
     text-align: center;
     width: 400px;
     border-radius: 10px;
+    margin: 50px 0;
 }
 
 .form-custom h1 {
@@ -162,7 +169,7 @@ body {
 .form-custom textarea {
     padding-left: 7px !important;
     margin: 0px;
-    width: 181px;
+    width: 188px;
     height: 54px;
     border: 1px #1A73E8 solid;
 }
@@ -206,6 +213,7 @@ input {
     flex-direction: column;
     width: 400px;
     padding: 10px;
+    margin: 50px 0;
 }
 
 .form-custom2 div {
