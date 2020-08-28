@@ -18,10 +18,10 @@
                         <label>Tên</label>
                         <input type="text" name="name" />
                     </p>
-                    <p>
+                    <div>
                         <button class="create-btn" style="color:white;margin-right:20px"><a href="#">Lưu</a></button>
                         <button class="create-btn" style="color:white"><a href="/administrator/Role">Đóng</a></button>
-                    </p>
+                    </div>
                 </form>
             </div>
         </div>
@@ -53,25 +53,6 @@
             </tr>
         }
     </table>
-
-    @*js*@
-    <script type="text/javascript">
-        var a = document.getElementsByClassName('del');
-        for (var i = a.length - 1; i >= 0; i--) {
-            a[i].onclick = function () {
-                var id = this.parentNode.getAttribute('data-id');
-                var xhr = new XMLHttpRequest();
-                xhr.open('GET', '/administrator/role/edit/' + id);
-                xhr.send();
-                xhr.onload = function () {
-                    var o = JSON.parse(xhr.response);
-                    frm['id'].value = o['id'];
-                    frm['name'].value = o['name'];
-                    window.location = window.location + '#edit';
-                }
-            }
-        }
-    </script>
     <div class="modal" id="edit">
         <div class="modal-dialog">
             <div class="modal-headding">
@@ -96,10 +77,25 @@
 
 @*delete*@
 <script type="text/javascript">
+    var a = document.getElementsByClassName('del');
+    for (var i = a.length - 1; i >= 0; i--) {
+        a[i].onclick = function () {
+            var id = this.parentNode.getAttribute('data-id');
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', '/administrator/role/edit/' + id);
+            xhr.send();
+            xhr.onload = function () {
+                var o = JSON.parse(xhr.response);
+                frm['id'].value = o['id'];
+                frm['name'].value = o['name'];
+                window.location = window.location + '#edit';
+            }
+        }
+    }
     var b = document.getElementsByClassName('delete');
     for (var i = 0; i < b.length; i++) {
         b[i].onclick = function () {
-            return confirm('are you sure delete?');
+            return confirm('Bạn chắc là muốn xoá chứ?');
         }
     }
 </script>

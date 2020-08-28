@@ -4,35 +4,38 @@
 }
 <script src="~/js/js.js"></script>
 <link href="~/css/Style.css" rel="stylesheet" />
-<p>Username: <b>@Model.Username</b></p>
-<p>Email: <b>@Model.Email</b></p>
+<div class="table-area">
+    <p>Tên người dùng: <b>@Model.Username</b></p>
+    <p>Email: <b>@Model.Email</b></p>
 
-<table>
-    <thead>
-        <tr>
-            <th>RoleName</th>
-            <th>Checked</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Roles)
-        {
+    <table>
+        <thead>
             <tr>
-                <td>@item.Name</td>
-                <td>
-                    @if (item.Checked)
-                    {
-                        <input type="checkbox" value="@item.Id" name="chk" checked="checked" />
-                    }
-                    else
-                    {
-                        <input type="checkbox" value="@item.Id" name="chk" />
-                    }
-                </td>
+                <th>Tên vai trò</th>
+                <th>Đã chọn</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Roles)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>
+                        @if (item.Checked)
+                        {
+                            <input type="checkbox" value="@item.Id" name="chk" checked="checked" />
+                        }
+                        else
+                        {
+                            <input type="checkbox" value="@item.Id" name="chk" />
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
 
 <script type="text/javascript">
     var a = document.getElementsByName('chk');
